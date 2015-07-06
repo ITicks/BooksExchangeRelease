@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:form>
+		<h1>Pannello di Controllo Inserzioni</h1>
+
+		<h3>Elenco delle Inserzioni da Confermare</h3>
+
+		<h:dataTable value="#{correttoreBean.getInserzioniDaValidare()}"
+			var="cr" styleClass="order-table" headerClass="order-table-header"
+			rowClasses="order-table-odd-row,order-table-even-row">
+			<h:column>
+				<f:facet name="header">#{msgs.libroImmagineText}</f:facet>
+				<h:graphicImage value="#{config.imagesUrl}#{cr.libro.foto}"
+					styleClass="book-img" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">#{msgs.libroTitoloText}</f:facet>
+				<h:commandLink value="#{cr.libro.titolo}"
+					action="#{utenteBean.getLibroBean(cr.libro.codice)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Conferma</f:facet>
+				<h:commandButton value="Conferma"
+					action="#{correttoreBean.validaInserzione(cr.inserzione.id_utente, cr.libro.codice, cr.libro.titolo)}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Rifiuta</f:facet>
+				<h:inputTextarea value="#{correttoreBean.emailMessage}"
+					styleClass="textarea-email" />
+				<div align="center">
+					<h:commandButton value="Rifiuta"
+						action="#{correttoreBean.rifiutaInserzione(cr.inserzione.id_utente, cr.libro.codice)}" >
+					</h:commandButton>
+				</div>
+
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+</ui:composition>

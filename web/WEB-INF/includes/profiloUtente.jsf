@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+ 
+  
+  
+  <h1>Benvenuto #{utenteBean.utente.nome} #{utenteBean.utente.cognome}</h1>
+  <h:form enctype="multipart/form-data">
+  <table>
+ 	<tr> 
+	 	<td>
+	 		<h:graphicImage styleClass="profile-img"
+					value="#{config.imagesUrl}#{utenteBean.utente.foto}" />
+					
+					<table class="inputfile">
+						<tr>
+							<td><h:inputFile styleClass="inputfile" required="true"
+									id="file" value="#{utenteBean.fileUploader.file}">
+									<f:validator validatorId="fileValidator" />
+								</h:inputFile></td>
+						</tr>
+						<tr>
+							<td>
+								<div align="center">
+									<h:commandButton value="Upload"
+										action="#{utenteBean.uploadFotoProfilo()}" />
+
+								</div>
+							</td>
+						</tr>
+					</table>
+				
+			</td>
+	 	<td>
+	 		<ul>
+		   		<li>#{msgs.utenteEmailText}: #{utenteBean.utente.email}</li>
+		   		<li>#{msgs.utenteIndirizzoText}: #{utenteBean.utente.indirizzo} </li>
+		   		<li>#{msgs.utenteComuneText}: #{utenteBean.utente.comune}</li>
+		   		<li>#{msgs.utenteProvinciaText}: #{utenteBean.utente.provincia}</li>
+		   		<li>#{msgs.utenteRegioneText}: #{utenteBean.utente.regione}</li>
+		   		<li>#{msgs.utenteNCellText}: #{utenteBean.utente.n_cell}</li>
+		   	</ul>
+	 	</td>  
+	 </tr>
+   	</table>
+   	</h:form>
+</ui:composition>

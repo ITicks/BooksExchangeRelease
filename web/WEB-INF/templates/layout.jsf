@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+  <script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?sensor=true">
+  </script>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+   
+	<title><ui:insert name="windowTitle"/></title>
+  <h:outputStylesheet library="css" name="styles.css" target="head"/>
+</h:head>
+
+<h:body>
+  <div id="heading">
+    <ui:insert name="heading">
+      <ui:include src="/WEB-INF/templates/header.jsf"/>
+    </ui:insert>
+  </div>
+
+  <div id="sidebarLeft">
+    <ui:insert name="sidebarLeft">
+      <ui:include src="/WEB-INF/templates/sidebarLeft.jsf"/>
+    </ui:insert>
+  </div>
+
+  <div id="content">
+    <ui:insert name="content"/>
+  </div>
+  <ui:debug/>
+  <h:outputScript library="js" name="error.js" />
+</h:body>
+</html>

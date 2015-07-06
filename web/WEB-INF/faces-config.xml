@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+      http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+      version="2.0">
+  
+  <!-- Impostazioni per i messaggi e per la lingua. -->
+  <application>
+    <locale-config>
+      <default-locale>it</default-locale>
+    </locale-config>
+    
+    <resource-bundle>
+      <base-name>it.univr.properties.messages_it</base-name>
+      <var>msgs</var>
+    </resource-bundle>
+    
+    <resource-bundle>
+      <base-name>it.univr.properties.config</base-name>
+      <var>config</var>
+    </resource-bundle>
+    
+  </application>
+  
+  
+  <factory>
+    <exception-handler-factory>
+      it.univr.exceptions.CustomExceptionHandlerFactory
+    </exception-handler-factory>
+  </factory>
+  
+  <!-- Navigation rule generale. -->
+  <navigation-rule>
+  
+    <!-- redirectToIndex. -->
+    <navigation-case>
+      <from-outcome>redirectToIndex</from-outcome>
+      <to-view-id>/index.jsf</to-view-id>
+      <redirect/>
+    </navigation-case>
+    
+    <!-- redirectToError. -->
+    <navigation-case>
+      <from-outcome>redirectToError</from-outcome>
+      <to-view-id>/error.jsf</to-view-id>
+      <redirect/>
+    </navigation-case>
+    
+    <!--  redirectToUscita. -->
+    <navigation-case>
+      <from-outcome>redirectToUscita</from-outcome>
+      <to-view-id>/secured/uscita.jsf</to-view-id>
+      <redirect/>
+    </navigation-case>
+    
+  </navigation-rule> 
+           
+</faces-config>

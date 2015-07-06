@@ -1,0 +1,15 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+  	
+ <h:form rendered="#{utenteBean.loggedIn}">
+ 
+	<h:commandLink value="#{msgs.menuProfiloText}" action="#{utenteBean.setState('profilo', 'utente')}" /><br/>
+    <h:commandLink value="#{msgs.menuMieiLibri}" action="#{utenteBean.setState('imiei_libri', 'utente')}" /><br/>
+    <h:commandLink value="#{msgs.menuInserisciLibro}" action="#{utenteBean.setState('inserisci_libro', 'utente')}" /><br/>
+    <h:commandLink value="#{msgs.menuRicercaLibri}" action="#{utenteBean.setState('ricerca_libri', 'utente')}" /><br/>
+    
+  </h:form>
+  
+</ui:composition>

@@ -1,0 +1,127 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+  
+  
+   
+  <h4>#{msgs.textInserisciLibro}</h4>
+  
+  <h:form  enctype="multipart/form-data">
+  	#{msgs.libroImmagineText}:
+    <h:inputFile required="true" id="file" value="#{utenteBean.fileUploader.file}" >
+      <f:validator validatorId="fileValidator"/>
+	</h:inputFile>
+	<h:message for="file"/>
+	 <h:commandButton  value="Upload" action="#{utenteBean.fileUploader.upload()}"/>
+	<h:messages/>
+  </h:form>
+          
+ <h:form>
+      <table>
+      <tr>
+	    <td>#{msgs.libroISBNText}:</td>
+	    <td>
+	      <h:inputText value="#{utenteBean.libro.ISBN}"
+	        required="true"
+	        requiredMessage="#{msgs.requiredField}"
+	        validatorMessage="#{msgs.lenMin1Max50}">
+	        <f:validateRequired />
+	        <f:validateLength minimum="1" maximum="50" />
+	      </h:inputText>
+	    </td>
+	  </tr>
+      <tr>
+	    <td>#{msgs.libroTitoloText}:</td>
+	    <td>
+	      <h:inputText value="#{utenteBean.libro.titolo}"
+	        required="true"
+	        requiredMessage="#{msgs.requiredField}"
+	        validatorMessage="#{msgs.lenMin1Max50}">
+	        <f:validateRequired />
+	        <f:validateLength minimum="1" maximum="50" />
+	      </h:inputText>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>#{msgs.libroAutoreText}:</td>
+	    <td>
+	      <h:inputText value="#{utenteBean.libro.autore}"
+	        required="true"
+	        requiredMessage="#{msgs.requiredField}"
+	        validatorMessage="#{msgs.lenMin1Max50}">
+	        <f:validateRequired />
+	        <f:validateLength minimum="1" maximum="50" />
+	      </h:inputText>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>#{msgs.libroGenereText}:</td>
+	    <td>
+	      <h:selectOneMenu value="#{utenteBean.libro.genere}">
+		    <f:selectItems value="#{ricercaBean.filtro.listaGenere(false)}"
+						   var="gen" itemLabel="#{gen.toString()}" itemValue="#{gen}" />
+		  </h:selectOneMenu>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>#{msgs.libroCasaEditriceText}:</td>
+	    <td>
+	      <h:inputText value="#{utenteBean.libro.casa_editrice}"
+	        required="true"
+	        requiredMessage="#{msgs.requiredField}"
+	        validatorMessage="#{msgs.lenMin1Max50}">
+	        <f:validateRequired />
+	        <f:validateLength minimum="1" maximum="50" />
+	      </h:inputText>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>#{msgs.libroAnnoPubblicazioneText}:</td>
+	    <td>
+	      <h:inputText value="#{utenteBean.libro.anno}"
+		  			 converterMessage="#{msgs.patternDateAccepted}">
+		  <f:converter converterId="it.univr.converters.DateConverter" />
+		  </h:inputText>
+	    </td>
+	  </tr>
+	   <tr>
+	    <td>#{msgs.libroLinguaText}:</td>
+	    <td>
+	    <h:selectOneMenu value="#{utenteBean.libro.lingua}">
+		    <f:selectItems value="#{ricercaBean.filtro.listaLingua()}"
+						   var="lin" itemLabel="#{lin.toString()}" itemValue="#{lin}" />
+		  </h:selectOneMenu>
+	    </td>
+	  </tr>
+	   <tr>
+	    <td>#{msgs.libroNPagineText}:</td>
+	    <td>
+	      <h:inputText value="#{utenteBean.libro.pagine}"
+	        required="true"
+	        requiredMessage="#{msgs.requiredField}"
+	        validatorMessage="#{msgs.lenMin1Max50}">
+	        <f:validateRequired />
+	        <f:validateLength minimum="1" maximum="50" />
+	      </h:inputText>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>#{msgs.libroDescrizioneText}:</td>
+	    <td>
+	      <h:inputTextarea value="#{utenteBean.libro.descrizione}"
+	        validatorMessage="#{msgs.lenMax200}">
+	        <f:validateRequired />
+	        <f:validateLength minimum="0" maximum="200" />
+	      </h:inputTextarea>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td colspan="2">
+	      <h:commandButton value="#{msgs.inserisciLibroButtonText}" action="#{utenteBean.insertNuovoLibro}"/>
+	    </td>
+	  </tr>
+    </table>
+</h:form>  
+
+</ui:composition>

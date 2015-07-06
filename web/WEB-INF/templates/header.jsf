@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<head>
+	<script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?sensor=true">
+    </script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+</head>
+<body>
+<ui:composition>
+	
+  <div class="error">
+  	<h:form id="frmError">
+  	  <h:messages id="frmErrorMsgError" />
+  	  <h:outputScript library="js" name="error.js" />
+  	</h:form>
+  </div>
+  <div class="header">
+  	<img class="banner" src="http://localhost:8000/banner.png"/>  
+  </div>
+  
+</ui:composition>
+</body>
+</html>

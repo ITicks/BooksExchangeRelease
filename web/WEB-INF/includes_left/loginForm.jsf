@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+	  			
+ <h:form rendered="#{not indexBean.loggedIn}">
+    <h4>#{msgs.loginTitleText}</h4>
+      <table>
+      <tr>
+	    <td>#{msgs.formUserLoginText}:</td>
+	    <td>
+	      <h:inputText value="#{indexBean.username}"
+	        required="true"
+	        requiredMessage="#{msgs.requiredField}"
+	        validatorMessage="#{msgs.lenMin1Max50}">
+	        <f:validateRequired />
+	        <f:validateLength minimum="1" maximum="50" />
+	      </h:inputText>
+	    </td>
+	  </tr>
+	  <tr>
+	    <td>#{msgs.formUserPasswordText}:</td>
+	    <td>
+	      <h:inputSecret value="#{indexBean.password}"
+	        required="true"
+	        requiredMessage="#{msgs.requiredField}"
+	        validatorMessage="#{msgs.lenMin1Max50}">
+	        <f:validateRequired />
+	        <f:validateLength minimum="1" maximum="50" />
+	      </h:inputSecret>
+	    </td>
+	  </tr>
+    </table>
+    
+    <br />
+    <h:commandButton value="#{msgs.formButtonLoginText}" action="#{indexBean.login}"/>
+  	<br />  	
+  </h:form>
+  
+ <h:form rendered="#{indexBean.loggedIn}">
+	  	<br />
+	    <h:commandButton value="#{msgs.formButtonLogoutText}" action="#{indexBean.logout}"/>
+	  	<br />
+  </h:form>
+  
+</ui:composition>

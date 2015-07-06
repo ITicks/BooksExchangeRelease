@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+ 
+  
+  
+  <h1>#{libroBean.libro.titolo}</h1>
+  <table>
+ 	<tr> 
+	 	<td>
+	 		<h:graphicImage styleClass="bigbook-img" value="#{config.imagesUrl}#{libroBean.libro.foto}" />
+	 	</td>
+	 	<td>
+	 		<ul>
+	 			<li>#{msgs.libroISBNText}: #{libroBean.libro.ISBN}</li>
+		   		<li>#{msgs.libroAutoreText}: #{libroBean.libro.autore}</li>
+		   		<li>#{msgs.libroGenereText}: #{libroBean.libro.genere}</li>
+		   		<li>#{msgs.libroAnnoPubblicazioneText}: #{libroBean.libro.anno}</li>
+		   		<li>#{msgs.libroCasaEditriceText}: #{libroBean.libro.casa_editrice}</li>
+		   		<li>#{msgs.libroNPagineText}: #{libroBean.libro.pagine}</li>
+		   		<li>#{msgs.libroNVisualizzazioniText}: #{libroBean.libro.n_visualizzazioni}</li>
+		   	</ul>
+	 	</td>  
+	 </tr>
+   	</table>
+</ui:composition>

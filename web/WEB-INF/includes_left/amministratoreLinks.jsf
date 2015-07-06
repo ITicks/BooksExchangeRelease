@@ -1,0 +1,14 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+  	
+ <h:form rendered="#{amministratoreBean.loggedIn}">
+ 
+	<h:commandLink value="#{msgs.nuovoCorrettoreText}" action="#{amministratoreBean.setState('nuovo_correttore', 'amministratore')}" /><br/>
+    <h:commandLink value="#{msgs.eliminaCorrettoreText}" action="#{amministratoreBean.setState('elimina_correttore', 'amministratore')}" /><br/>
+    <h:commandLink value="#{msgs.statisticheText}" action="#{amministratoreBean.setState('statistiche', 'amministratore')}" /><br/>
+    
+  </h:form>
+  
+</ui:composition>

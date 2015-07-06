@@ -1,0 +1,79 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+  <h:form>
+  
+   <h2>#{msgs.textlistaLibValidi}</h2>
+	 
+    <h:dataTable rendered="#{not utenteBean.listaInsLibValidati.isEmpty()}" value="#{utenteBean.listaInsLibValidati}" var="lil">
+     <h:column>
+	    <f:facet name="header">#{msgs.libroImmagineText}</f:facet>
+	  	<h:graphicImage value="#{config.imagesUrl}#{lil.libro.foto}" styleClass="book-img" />
+      </h:column> 
+	  <h:column>
+	    <f:facet name="header">#{msgs.libroTitoloText}</f:facet>
+		<h:commandLink value="#{lil.libro.titolo}" action="#{utenteBean.getLibroBean(lil.libro.codice)}"/> 
+      </h:column>
+      <h:column>
+	    <f:facet name="header">#{msgs.libroAutoreText}</f:facet>
+		#{lil.libro.autore}
+      </h:column>
+      <h:column>
+	    <f:facet name="header">#{msgs.libroGenereText}</f:facet>
+		#{lil.libro.genere}
+      </h:column>
+      <h:column>
+	    <f:facet name="header">#{msgs.libroNVisualizzazioniText}</f:facet>
+		#{lil.libro.n_visualizzazioni}
+      </h:column>
+      
+      <h:column>
+	    <f:facet name="header">#{msgs.libroDisponibilitaText}</f:facet>
+		#{lil.inserzione.disponibilita}
+      </h:column>
+      <h:column>
+				<h:commandButton value="#{msgs.disponibileButtonText}"
+					action="#{utenteBean.setDisponibilita(lil.inserzione.codice_libro, true)}" />
+				
+				<h:commandButton value="#{msgs.nonDisponibileButtonText}"
+					action="#{utenteBean.setDisponibilita(lil.inserzione.codice_libro, false)}" />
+	  </h:column>
+	  <h:column>
+				<h:commandButton value="#{msgs.eliminaButtonText}"
+					action="#{utenteBean.deleteInserzioneLibro(lil.inserzione.codice_libro)}" />
+	  </h:column>
+	  
+    </h:dataTable>
+    
+  <h2>#{msgs.textlistaLibInAttesa}</h2>
+	  
+    <h:dataTable rendered="#{not utenteBean.listaInsLibDaValidare.isEmpty()}" value="#{utenteBean.listaInsLibDaValidare}" var="lil">
+      <h:column>
+	    <f:facet name="header">#{msgs.libroImmagineText}</f:facet>
+	  	<h:graphicImage value="#{config.imagesUrl}#{lil.libro.foto}" styleClass="book-img" />
+      </h:column> 
+	  <h:column>
+	    <f:facet name="header">#{msgs.libroTitoloText}</f:facet>
+	    <h:commandLink value="#{lil.libro.titolo}" action="#{utenteBean.getLibroBean(lil.libro.codice)}"/> 
+      </h:column>
+      <h:column>
+	    <f:facet name="header">#{msgs.libroAutoreText}</f:facet>
+		#{lil.libro.autore}
+      </h:column>
+      <h:column>
+	    <f:facet name="header">#{msgs.libroGenereText}</f:facet>
+		#{lil.libro.genere}
+      </h:column>
+      <h:column>
+	    <f:facet name="header">#{msgs.libroCasaEditriceText}</f:facet>
+		#{lil.libro.casa_editrice}
+      </h:column>
+	  
+    </h:dataTable>
+    
+    <h1><h:outputText rendered="#{utenteBean.areListsEmpty()}" value="#{msgs.nessunLibroInseritoText}"/></h1>
+  
+    
+  </h:form>
+</ui:composition>

@@ -1,0 +1,73 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+  <h:form>
+    <h1> Creazione nuovo Correttore di Bozze </h1>
+    
+    			<h:form>
+				<table>
+					<tr>
+						<td>Nome:</td>
+						<td><h:inputText value="#{amministratoreBean.correttore.nome}"
+								required="true"
+								requiredMessage="Nome obbligatorio"
+								validatorMessage="Nome non valido">
+								<f:validateLength minimum="1" maximum="50" />
+							</h:inputText></td>
+					</tr>
+					<tr>
+						<td>Cognome:</td>
+						<td><h:inputText value="#{amministratoreBean.correttore.cognome}"
+								required="true"
+								requiredMessage="Cognome obbligatorio"
+								validatorMessage="Cognome non valido">
+								<f:validateLength minimum="1" maximum="50" />
+							</h:inputText></td>
+					</tr>
+					<tr>
+						<td>Username:</td>
+						<td><h:inputText value="#{amministratoreBean.correttore.username}"
+								required="true"
+								requiredMessage="Username obbligatorio"
+								validatorMessage="Username non valido">
+								<f:validateLength minimum="1" maximum="50" />
+							</h:inputText></td>
+					</tr>
+					<tr>
+						<td>Password:</td>
+						<td><h:inputSecret value="#{amministratoreBean.correttore.password}"
+								required="true"
+								requiredMessage="Password obbligatoria"
+								validatorMessage="Password non valida">
+								<f:validateLength minimum="1" maximum="50" />
+							</h:inputSecret></td>
+					</tr>
+					<tr>
+						<td>E-mail:</td>
+						<td><h:inputText value="#{amministratoreBean.correttore.email}"
+								required="true"
+								requiredMessage="E-mail obbligatoria"
+								validatorMessage="E-mail non valida">
+								<f:validateLength minimum="1" maximum="100" />
+								<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+							</h:inputText></td>
+					</tr>
+					<tr>
+						<td>Numero di telefono:</td>
+						<td><h:inputText value="#{amministratoreBean.correttore.n_cell}"
+								required="true"
+								requiredMessage="Numero di telefono obbligatorio"
+								validatorMessage="Numero di telefono non valido">
+								<f:validateLength minimum="1" maximum="50" />
+							</h:inputText></td>
+					</tr>
+				</table>
+				<p>
+					<h:commandButton value="Conferma"
+									 action="#{amministratoreBean.setNuovoCorrettore()}" />
+				</p>
+
+			</h:form>    
+  </h:form>
+</ui:composition>

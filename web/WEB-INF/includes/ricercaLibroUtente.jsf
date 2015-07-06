@@ -1,0 +1,102 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets"
+	  			xmlns:m="http://code.google.com/p/gmaps4jsf/">
+   
+  <h:form>
+  	 <h1> #{msgs.ricercaTitoloText}: </h1>
+
+		<table>
+			<tr>
+				<td>#{msgs.libroTitoloText}:</td>
+				<td><h:inputText value="#{ricercaBean.filtro.titolo}"
+						required="false" requiredMessage="#{msgs.requiredField}"
+						validatorMessage="#{msgs.lenMin1Max100}">
+						<f:validateLength minimum="1" maximum="100" />
+					</h:inputText>
+				</td>
+				<td>#{msgs.libroAutoreText}:</td>
+				<td><h:inputText value="#{ricercaBean.filtro.autore}"
+						required="false" requiredMessage="#{msgs.requiredField}"
+						validatorMessage="#{msgs.lenMin1Max100}">
+						<f:validateLength minimum="1" maximum="100" />
+					</h:inputText>
+				</td>
+				<td>#{msgs.libroGenereText}:</td>
+				<td><h:selectOneMenu value="#{ricercaBean.filtro.genere}">
+						<f:selectItems value="#{ricercaBean.filtro.listaGenere(true)}"
+							var="gen" itemLabel="#{gen.toString()}" itemValue="#{gen}" />
+					</h:selectOneMenu>
+				</td>
+				<td>#{msgs.ricercaAreaText}:</td>
+				<td><h:selectOneMenu value="#{ricercaBean.filtro.area}">
+						<f:selectItems value="#{ricercaBean.filtro.listaArea()}" var="ar"
+							itemLabel="#{ar.toString()}" itemValue="#{ar}" />
+					</h:selectOneMenu>
+				</td>
+				<td>
+				<h:commandButton value="#{msgs.ricercaButtonText}" action="#{ricercaBean.ricercaLibro()}" />
+				
+				</td>
+
+			</tr>
+		</table>
+	</h:form>
+
+<!-- GOOGLE MAPS!!! -->
+  
+  <h:form rendered="#{not ricercaBean.listaLibriCercati.isEmpty()}">
+		<m:map width="100%" height="300px" autoReshape="true" enableScrollWheelZoom="true">
+		<ui:repeat var="lic" value="#{ricercaBean.listaLibriCercati}" varStatus="status">
+			<m:marker address="#{lic.utente.indirizzo}, #{lic.utente.comune}, #{lic.utente.provincia}, #{lic.utente.regione} ">
+				<m:htmlInformationWindow htmlText="#{lic.utente.nome} #{lic.utente.cognome}, #{lic.utente.indirizzo}, #{lic.utente.comune}" />
+			</m:marker>
+		</ui:repeat>
+		</m:map>
+	</h:form>
+<h:form>
+  
+  <h:outputText rendered="#{ricercaBean.listaLibriCercati.isEmpty()}" value="NESSUN LIBRO TROVATO"/>
+  
+  <h:dataTable rendered="#{not ricercaBean.listaLibriCercati.isEmpty()}"
+  				value="#{ricercaBean.listaLibriCercati}" var="lic" >
+      <h:column>
+	    <f:facet name="header">#{msgs.libroImmagineText}</f:facet>
+	  	<h:graphicImage value="#{config.imagesUrl}#{lic.libro.foto}" styleClass="book-img" />
+      </h:column> 
+	  <h:column>
+	    <f:facet name="header">#{msgs.libroTitoloText}</f:facet>
+		<h:commandLink value="#{lic.libro.titolo}" action="#{utenteBean.getLibroBean(lic.libro.codice)}"/> 
+      </h:column>
+      <h:column>
+	    <f:facet name="header">#{msgs.libroAutoreText}</f:facet>
+		#{lic.libro.autore}
+      </h:column>
+      <h:column>
+	    <f:facet name="header">#{msgs.libroGenereText}</f:facet>
+		#{lic.libro.genere}
+      </h:column>
+      <h:column>
+	    <f:facet name="header">#{msgs.libroNVisualizzazioniText}</f:facet>
+		#{lic.libro.n_visualizzazioni}
+      </h:column>
+      
+      <h:column>
+	    <f:facet name="header">#{msgs.libroDisponibilitaText}</f:facet>
+		#{lic.disponibilita}
+      </h:column>
+      
+      <h:column>
+	    <f:facet name="header">#{msgs.utenteImmagineText}</f:facet>
+	  	<h:graphicImage value="#{config.imagesUrl}#{lic.utente.foto}" styleClass="miniprofile-img" />
+      </h:column> 
+	  <h:column>
+	    <f:facet name="header">#{msgs.utenteNomeText}</f:facet>
+		<h:commandLink value="#{lic.utente.nome} #{lic.utente.cognome}" action="#{ricercaBean.richiediLibro(lic.utente, lic.libro)}"/> 
+      </h:column>
+  </h:dataTable>
+  </h:form>
+  
+  
+</ui:composition>

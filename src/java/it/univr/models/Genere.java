@@ -1,0 +1,19 @@
+package it.univr.models;
+
+public enum Genere {
+	NESSUNO,
+	ARTE,
+	BIOGRAFIA,
+	CLASSICO,
+	COMMEDIA,
+	CUCINA,
+	DIZIONARIO,
+	FANTASY,
+	FANTASCIENZA,
+	GIALLO,
+	HORROR,
+	PER_BAMBINI,
+	ROMANZO,
+	SCIENTIFICO,
+	STORICO
+}

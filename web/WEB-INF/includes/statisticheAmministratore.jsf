@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+  <h:form>
+    <h1> Statistiche </h1>
+     <ul class="listvalues">
+	    
+	    <li>Utenti registrati: #{amministratoreBean.getStatistiche().nur}</li>
+	    <li>Numero Correttori di Bozze: #{amministratoreBean.getStatistiche().ncb}</li>
+	    <li>Inserzioni Validate: #{amministratoreBean.getStatistiche().niv}</li>      
+	    <li>Inserzioni da Validare: #{amministratoreBean.getStatistiche().nidv}</li>
+		
+	    </ul>
+    
+  </h:form>
+</ui:composition>
