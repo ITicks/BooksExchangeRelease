@@ -23,12 +23,12 @@
     
   </application>
   
-  
+  <!-- 
   <factory>
     <exception-handler-factory>
       it.univr.exceptions.CustomExceptionHandlerFactory
     </exception-handler-factory>
-  </factory>
+  </factory> -->
   
   <!-- Navigation rule generale. -->
   <navigation-rule>

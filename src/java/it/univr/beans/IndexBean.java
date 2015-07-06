@@ -55,6 +55,7 @@ public class IndexBean extends ViewStateBean implements Serializable
 	@PostConstruct
 	public void initialize() {
 		loggedIn = false;
+		this.setState("registrazione_utente", "index");
 	}
 	
 	/**

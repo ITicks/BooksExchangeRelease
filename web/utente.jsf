@@ -16,7 +16,7 @@
   </ui:define>
   <ui:define name="content">
     <center>
-      <ui:include src="#{utenteBean.getPageState()}"/>
+      <ui:include src="#{utenteBean.getPageState()}" />
     </center>
   </ui:define>
 </ui:composition>

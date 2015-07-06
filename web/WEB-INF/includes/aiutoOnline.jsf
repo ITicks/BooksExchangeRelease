@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	  			xmlns:h="http://java.sun.com/jsf/html"
+	  			xmlns:f="http://java.sun.com/jsf/core"
+	  			xmlns:ui="http://java.sun.com/jsf/facelets">
+	  			
+<center><h1> HELP ONLINE </h1></center>
+<center><h2> 1) Registrazione </h2></center>
+<center><p> La registrazione è il primo passo per poter accedere al nostro servizio di interscambio libri BooksExchange.
+<br/> Dovrai solamente inserire i tuoi dati personali e noi ti invieremo una email una volta effettuata la registrazione.
+<br/>Nella email ti ricorderemo i tuoi dati personali così da non dimenticarli in futuro. </p></center>
+<center><h2> 2) Profilo </h2></center>
+<center><p> Nel tuo profilo potrai visualizzare i tuoi dati personali che non potranno essere modificabili a meno della tua foto profilo.
+<br/>I dati devono rimanere invariati per poter permettere una corretta localizzazione da parte del nostro servizio di ricerca.
+<br/>Per qualsiasi variazione ti consigliamo la creazione di un nuovo profilo, anche con la stessa email così da mantenere la flessibilità del tuo vecchio account senza compromessi. 
+</p></center>
+<center><h2> 3) I miei Libri </h2></center>
+<center><p> Nella sezione "I miei Libri" potrai vedere i libri che possono essere ricercati dagli altri utenti e i libri in attesa di essere validati.
+<br/>Avrai quindi per ogni libro la sicurezza di condividere informazioni affidabili e complete rendendo sicura e defficiente la funzione di ricerca sui tuoi contenuti.
+<br/>Potrai inoltre modificare la disponibilità dei libri che hai messo a disposizione indicando la mancata disponibilita con un semplice click, oltre che poterlo eliminare. 
+<br/>Per ogni libri verificato e validato ti sarà spedita una email dal nostro staff per informarti della convalida dell'inserzione, o nel caso peggiore della mancata convalida con esasustiva spiegazione della motivazione,
+ il tutto per assicurare agli utenti un servizio affidabile e duraturo.
+ </p></center>
+ <center><h2> 4) Nuovo Libro </h2></center>
+<center><p>Potrai inserire quindi un nuovo libro, caricandone assieme un'opportuna immagine di copertina.
+<br/>Controlla attentamente i dati inseriti perchè al momento della validazione basta un piccolo errore per invalidare il libro in attesa che comporta la sua eliminazione.
+<br/>Uno sforzo in più che sicuramente renderà la nostra comunity di appassionati lettori soddisfatti e sicuri dell'utilità del nostro servizio.
+</p></center>
+ <center><h2> 5) Ricerca Libro </h2></center>
+<center><p>La ricerca di un libro è il cuore essenziale di BooksExchange. Potrai infatti cercare il libro attraverso diversi parametri di ricerca uno dei quali è l'AREA.
+<br/>Siamo convinti che lo scambio di libri possa essere il più facile possibile se aiutato dalla vicinanza e così selezioniamo per te i titoli dei libri cercati nell'area di tuo gradimento.
+<br/>Per ogni libro trovato potrai visualizzare su Gmaps la posizione del proprietario per valutarne la vicinanza o la "comodità stradale".
+<br/>Se tu fossi intenzionato a chiedere in prestito un libro della lista di quelli trovati non devi fare altro che cliccare sul Nome del proprietario
+e sarai portato alla pagina di richiesta con un modello di email già precopilato per facilitarti il compito.
+<br/>Sarà poi delegata a te e al proprietario del libro la responsabilità delle comunicazioni via email o attraverso un qualsiasi altro mezzo di comunicazione per organizzare lo/gli scambi.
+<br/>Si prega inoltre di impostare il prima possibile un libro in prestito come <i>non disponibile</i> qualora non lo si abbia a disposizione così da mantenere efficiente il servizio.
+</p></center>
+
+
+</ui:composition>

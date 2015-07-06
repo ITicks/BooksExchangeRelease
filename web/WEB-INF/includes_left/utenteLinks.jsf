@@ -9,7 +9,8 @@
     <h:commandLink value="#{msgs.menuMieiLibri}" action="#{utenteBean.setState('imiei_libri', 'utente')}" /><br/>
     <h:commandLink value="#{msgs.menuInserisciLibro}" action="#{utenteBean.setState('inserisci_libro', 'utente')}" /><br/>
     <h:commandLink value="#{msgs.menuRicercaLibri}" action="#{utenteBean.setState('ricerca_libri', 'utente')}" /><br/>
-    
+    <h:commandLink value="#{msgs.menuHelp}" action="#{utenteBean.setState('aiuto', 'utente')}" /><br/>
+  
   </h:form>
   
 </ui:composition>
